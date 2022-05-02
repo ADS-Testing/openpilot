@@ -176,9 +176,9 @@ def plot_trajectory_heatmap(folders):
 
     remaining_inds = is_distinct_vectorized(trajectory_np_unflatten, [], mask_in_effect, xl_in_effect, xu_in_effect, p, c, th, verbose=True)
 
-    print('remaining_inds', len(remaining_inds), remaining_inds)
-    print('remaining_inds folders', np.array(folders)[remaining_inds])
-    print(trajectory_np[remaining_inds])
+    # print('remaining_inds', len(remaining_inds), remaining_inds)
+    # print('remaining_inds folders', np.array(folders)[remaining_inds])
+    # print(trajectory_np[remaining_inds])
 
 
 

@@ -145,7 +145,7 @@ def get_errors_count(folders, last_n_frame_id):
 
 def draw_field(parent_folders_results, title):
     styles = {
-    'normal': ':',
+    'no-collision': ':',
     'non-fusion errors': '--',
     'fusion errors': '-'
     }
@@ -178,6 +178,10 @@ def draw_field(parent_folders_results, title):
                  linewidth=3,
                  label=category,
                  linestyle=styles[category])
+
+        print('title', title, 'category', category)
+        print('np.mean(result)', np.mean(result))
+        print('np.std(result)', np.std(result))
 
 
         # plt.hist(np.array(results[title]), density=True, label=category, bins=bin_num, range=range, alpha=0.5)
@@ -249,7 +253,7 @@ if __name__ == '__main__':
     # draw fusion/non fusion/normal state values(fusion percent error, min d) histograms
     if task == 'hist':
         parent_folders = {
-            'normal': normal_folders,
+            'no-collision': normal_folders,
             'non-fusion errors': non_fusion_bugs_folders,
             'fusion errors': fusion_bugs_folders
         }
@@ -275,7 +279,7 @@ if __name__ == '__main__':
                 # 'min d old': min_d_old_list
             }
 
-        for title, _ in parent_folders_results['normal'].items():
+        for title, _ in parent_folders_results['no-collision'].items():
             draw_field(parent_folders_results, title)
 
     # statistical test of objectives
