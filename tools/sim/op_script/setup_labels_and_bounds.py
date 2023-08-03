@@ -8,6 +8,8 @@ from tools.sim.op_script.object_types import vehicle_types
 class emptyobject():
     def __init__(self, **kwargs):
         self.__dict__.update(kwargs)
+    def __str__(self):
+        return str(self.__dict__)
 
 
 keywords_dict = {
