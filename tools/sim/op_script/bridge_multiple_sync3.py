@@ -1084,7 +1084,7 @@ def run_op_simulation(x, fuzzing_content, fuzzing_arguments, sim_specific_argume
     cur_info['sim_specific_arguments']=str(sim_specific_arguments)
     
     with open(cur_folder+'/'+'cur_info.text', 'w') as f_text:
-        f_text.write(cur_info)
+        f_text.write(str(cur_info))
     
     print('finish copy_tree')
 
