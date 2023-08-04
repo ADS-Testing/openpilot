@@ -4,7 +4,8 @@ import boto3
 
 # need to be encapsulated by using env var
 s3= boto3.client("s3", aws_access_key_id=os.environ["AWS_ACCESS_KEY"], aws_secret_access_key=os.environ["AWS_SECRET_KEY"])
-s3_bucket_name="ads-failure-scenarios"
+s3_bucket_name=os.environ["S3_BUCKET_NAME"]
+
 def create_gif(scenario_folder, duration=100):
     output_gif_path=scenario_folder + '/output.gif'
     pickle_path=scenario_folder + '/cur_info.pickle'
@@ -12,7 +13,6 @@ def create_gif(scenario_folder, duration=100):
     # Get all image files from the frames folder
     frames_folder=scenario_folder + '/front'
     frame_files = [f for f in os.listdir(frames_folder) if f.endswith('.jpg')]
-    # print(frame_files)
     # Sort the image files numerically (assuming filenames are numbers)
     frame_files.sort(key=lambda x: int(x.split('.')[0]))
 
